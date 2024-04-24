@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="$FLUTTER_BASE_HREF" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />   
+    <meta name="apple-mobile-web-app-title" content="Mahal" />
+    <link rel="apple-touch-icon" href="icons/Icon-192.jpg" />
+    <link rel="icon" type="image/jpg" href="favicon.jpg" />
+    <title>Mahal</title>
+    <link rel="manifest" href="manifest.json" />
+    <script>
+      const serviceWorkerVersion = null;
+    </script>
+    <link rel="preload" as="script" href="critical.js">
+
+    <script src="flutter.js" defer></script>
+  </head>
+  <body>
+    <style>
+      body {
+        background-color: #171821;
+        height: 100vh;
+        width: 100vw;
+      } 
+
+      .main-content {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+    <script type="text/javascript">
+      window.flutterWebRenderer = "html";
+    </script>
+   
+    </script>
+    <div class="main-content" id="loader-content">
+      <div class="loading">
+        <div class="obj"></div>
+        <div class="obj"></div>
+        <div class="obj"></div>
+        <div class="obj"></div>
+        <div class="obj"></div>
+        <div class="obj"></div>
+        <div class="obj"></div>
+        <div class="obj"></div>
+      </div>
+      <style type="text/css">
+        .loading {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          height: 100px;
+          display: flex;
+          align-items: center;
+        }
+
+        .obj {
+          width: 6px;
+          height: 0px;
+          background: #9166cc;
+          margin: 0 3px;
+          border-radius: 10px;
+          animation: loading 1.2s infinite;
+        }
+
+        .obj:nth-child(2) {
+          animation-delay: 0.15s;
+        }
+        .obj:nth-child(3) {
+          animation-delay: 0.3s;
+        }
+        .obj:nth-child(4) {
+          animation-delay: 0.45s;
+        }
+        .obj:nth-child(5) {
+          animation-delay: 0.6s;
+        }
+        .obj:nth-child(6) {
+          animation-delay: 0.75s;
+        }
+        .obj:nth-child(7) {
+          animation-delay: 0.9s;
+        }
+        .obj:nth-child(8) {
+          animation-delay: 1.05s;
+        }
+
+        @keyframes loading {
+          0% {
+            height: 0;
+          }
+          50% {
+            height: 50px;
+          }
+          100% {
+            height: 0;
+          }
+        }
+      </style>
+    </div>
+    <script>
+      function delay(time) {
+        return new Promise((resolve) => setTimeout(resolve, time));
+      }
+      window.addEventListener("load", function (ev) {
+        var loaderContent = document.querySelector("#loader-content");
+
+        _flutter.loader.loadEntrypoint({
+          serviceWorker: {
+            serviceWorkerVersion: serviceWorkerVersion,
+          },
+          onEntrypointLoaded: async function (engineInitializer) {
+            let appRunner = await engineInitializer.initializeEngine();
+            loaderContent.style.opacity = "0";
+            await delay(400);
+            await appRunner.runApp();
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
