@@ -6,6 +6,8 @@ void main() {
   runApp(const MyApp());
 }
 
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -13,6 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      key: scaffoldKey,
       debugShowCheckedModeBanner: false,
       title: 'Mahal',
       theme: ThemeData(

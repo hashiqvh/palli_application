@@ -21,7 +21,7 @@ class _AuthPageState extends State<AuthPage> {
           bool isScrenLarge = constraints.maxWidth > 600;
           double size = constraints.maxWidth > 600
               ? constraints.maxHeight
-              : constraints.maxWidth;
+              : constraints.maxWidth - 150;
           return Row(
             children: [
               if (constraints.maxWidth > 800)
@@ -65,7 +65,7 @@ class _AuthPageState extends State<AuthPage> {
                         ),
                       ),
                       SizedBox(
-                        height: size * 0.01,
+                        height: size * 0.02,
                       ),
                       InkWell(
                         onTap: () {
@@ -124,7 +124,7 @@ class _AuthPageState extends State<AuthPage> {
                               ),
                       ),
                       SizedBox(
-                        height: size * 0.03,
+                        height: size * 0.05,
                       ),
                       isLogin
                           ? LoginComponent(

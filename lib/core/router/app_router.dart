@@ -14,15 +14,6 @@ final GoRouter router = GoRouter(
       builder: (context, state) {
         return const AuthPage();
       },
-      routes: const <RouteBase>[
-        // This screen is displayed on the ShellRoute's Navigator.
-        // GoRoute(
-        //   path: 'details',
-        //   builder: (BuildContext context, GoRouterState state) {
-        //     return const DetailsScreen(label: 'A');
-        //   },
-        // ),
-      ],
     ),
     ShellRoute(
       navigatorKey: _shellNavigatorKey,
@@ -35,7 +26,7 @@ final GoRouter router = GoRouter(
         GoRoute(
           path: '/dashboard',
           builder: (context, state) {
-            return HomePage();
+            return const HomePage();
           },
           routes: const <RouteBase>[
             // This screen is displayed on the ShellRoute's Navigator.

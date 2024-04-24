@@ -18,7 +18,7 @@ class Header extends StatelessWidget {
         children: [
           if (!Responsive.isDesktop(context))
             Padding(
-              padding: const EdgeInsets.only(right: 20),
+              padding: const EdgeInsets.only(left: 0),
               child: InkWell(
                 onTap: () => scaffoldKey.currentState!.openDrawer(),
                 child: const Padding(
@@ -26,7 +26,7 @@ class Header extends StatelessWidget {
                   child: Icon(
                     Icons.menu,
                     color: Colors.grey,
-                    size: 25,
+                    size: 30,
                   ),
                 ),
               ),
