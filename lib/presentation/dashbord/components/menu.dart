@@ -18,15 +18,15 @@ class Menu extends StatefulWidget {
 //menu page widgets..
 class _MenuState extends State<Menu> {
   List<MenuModel> menu = [
-    MenuModel(icon: 'svg/home.svg', title: "Dashboard"),
+    MenuModel(icon: 'assets/svg/home.svg', title: "Dashboard"),
 
     //I just remove some stuff in this code that I think it will not needed soon.
     //MenuModel(icon: 'svg/share-2.svg', title: "Connect"),
-    MenuModel(icon: 'svg/bell.svg', title: "Notification"),
+    MenuModel(icon: 'assets/svg/bell.svg', title: "Notification"),
 
-    MenuModel(icon: 'svg/profile.svg', title: "Profile"),
+    MenuModel(icon: 'assets/svg/profile.svg', title: "Profile"),
 
-    MenuModel(icon: 'svg/signout.svg', title: "Exit"),
+    MenuModel(icon: 'assets/svg/signout.svg', title: "Exit"),
   ];
 
   @override

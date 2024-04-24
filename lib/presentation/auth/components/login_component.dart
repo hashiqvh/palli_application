@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:palli_application/core/responsive.dart';
 import 'package:palli_application/core/themes/color_themes.dart';
 import 'package:palli_application/presentation/common/components/field_component.dart';
 
@@ -22,13 +23,17 @@ class LoginComponent extends StatelessWidget {
           labelText: "Email Address",
         ),
         SizedBox(
-          height: size * 0.03,
+          height: Responsive.isDesktop(context)
+              ? constraints.maxHeight * 0.02
+              : constraints.maxHeight * 0.02,
         ),
         const FieldComponent(
           labelText: "Password",
         ),
         SizedBox(
-          height: size * 0.03,
+          height: Responsive.isDesktop(context)
+              ? constraints.maxHeight * 0.02
+              : constraints.maxHeight * 0.02,
         ),
         GestureDetector(
           onTap: () => GoRouter.of(context).go('/dashboard'),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:palli_application/core/responsive.dart';
 import 'package:palli_application/core/themes/color_themes.dart';
 import 'package:palli_application/presentation/auth/components/login_component.dart';
 import 'package:palli_application/presentation/auth/components/register_component.dart';
@@ -30,7 +31,9 @@ class _AuthPageState extends State<AuthPage> {
                   color: lightGreenColor,
                   width: constraints.maxWidth,
                   height: constraints.maxHeight,
-                  child: SvgPicture.network("images/mosque.svg"),
+                  child: SvgPicture.asset(
+                    "assets/images/mosque.svg",
+                  ),
                 )),
               Expanded(
                   child: Container(
@@ -50,9 +53,9 @@ class _AuthPageState extends State<AuthPage> {
                     children: [
                       !isScrenLarge
                           ? Center(
-                              child: SvgPicture.network(
-                                "images/mosque.svg",
-                                height: size * 0.3,
+                              child: SvgPicture.asset(
+                                "assets/images/mosque.svg",
+                                height: size * 0.5,
                               ),
                             )
                           : const SizedBox(),
@@ -65,7 +68,9 @@ class _AuthPageState extends State<AuthPage> {
                         ),
                       ),
                       SizedBox(
-                        height: size * 0.02,
+                        height: Responsive.isDesktop(context)
+                            ? constraints.maxHeight * 0.01
+                            : constraints.maxHeight * 0.01,
                       ),
                       InkWell(
                         onTap: () {
@@ -84,7 +89,6 @@ class _AuthPageState extends State<AuthPage> {
                                         fontSize: 14,
                                         fontFamily: 'Inter',
                                         fontWeight: FontWeight.w400,
-                                        height: 0.11,
                                       ),
                                     ),
                                     TextSpan(
@@ -94,7 +98,6 @@ class _AuthPageState extends State<AuthPage> {
                                         fontSize: 14,
                                         fontFamily: 'Inter',
                                         fontWeight: FontWeight.w500,
-                                        height: 0.11,
                                       ),
                                     ),
                                   ],
@@ -124,7 +127,9 @@ class _AuthPageState extends State<AuthPage> {
                               ),
                       ),
                       SizedBox(
-                        height: size * 0.05,
+                        height: Responsive.isDesktop(context)
+                            ? constraints.maxHeight * 0.02
+                            : constraints.maxHeight * 0.02,
                       ),
                       isLogin
                           ? LoginComponent(
